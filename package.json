@@ -1,7 +1,7 @@
 {
   "name": "ractions-chart",
   "version": "1.0.0",
-  "description": "Generates SVG charts for reactions on GitHub issues, comments and pull requests",
+  "description": "Generates charts for reactions on GitHub issues",
   "main": "index.js",
   "scripts": {
     "start": "node --harmony index.js",
