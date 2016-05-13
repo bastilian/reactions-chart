@@ -3,8 +3,59 @@
   <head>
     <meta charset="utf-8">
     <title>Reaction Charts for GitHub</title>
+    <style media="screen">
+      body {
+        font-family: Helvetica Neue, Helvetica, Verdana, Arial, sans-serif;
+        font-size: 1.5em;
+        text-align: center;
+      }
+      input {
+        font-size: 1.5em;
+        padding: .2em .5em;
+        width: 450px;
+        text-align: center;
+      }
+      img {
+        margin: 2em 0;
+      }
+    </style>
   </head>
   <body>
-    <img src="/chart/bastilian/test-repo/issues/2" alt="Reactions to the issue!" />
+    <form>
+      <p>
+        <strong>Enter issue URL:</strong>
+      </p>
+      <input class='issue' type="text" name="issue" value='bastilian/test-repo/issues/2'>
+    </form>
+
+    <img class='issue-chart' src="/chart/bastilian/test-repo/issues/2" alt="Reactions to the issue!" />
+
+    <pre>
+      ![Reactions Chart](http://reactions-chart.bastilian.me/chart/bastilian/test-repo/issues/2)
+    </pre>
+    <script type="text/javascript">
+      function ready(fn) {
+        if (document.readyState != 'loading'){
+          fn();
+        } else {
+          document.addEventListener('DOMContentLoaded', fn);
+        }
+      }
+
+      ready(function () {
+        var input = document.querySelectorAll('.issue')[0];
+        var img   = document.querySelectorAll('.issue-chart')[0];
+        var pre   = document.querySelectorAll('pre')[0];
+
+        input.addEventListener('change', function (event) {
+          img.src = '/chart/' + input.value
+          pre.textContent = "![Reactions Chart](http://reactions-chart.bastilian.me/" + input.value + ")";
+        });
+
+        document.querySelectorAll('form')[0].addEventListener('submit', function (e) {
+          e.preventDefault();
+        })
+      })
+    </script>
   </body>
 </html>
