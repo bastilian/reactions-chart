@@ -4,6 +4,6 @@ app:
   ports:
     - 3000:3000
   environment:
-    - PROT=3000
+    - PORT=3000
   volumes:
     - .:/app
