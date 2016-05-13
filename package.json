@@ -1,0 +1,20 @@
+{
+  "name": "ractions-chart",
+  "version": "1.0.0",
+  "description": "Generates SVG charts for reactions on GitHub issues, comments and pull requests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "github",
+    "reactions",
+    "emoji"
+  ],
+  "author": "Sebastian Gräßl <sebastian@validcode.me>",
+  "license": "MIT",
+  "dependencies": {
+    "d3": "^3.5.17",
+    "express": "^4.13.4"
+  }
+}
