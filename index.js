@@ -24,6 +24,6 @@ app.get('/chart/:user/:repo/:resource/:id', function (req, res) {
   }
 });
 
-app.listen(3000, function () {
-  console.log('Reactions charts listening on port 3000!');
+app.listen(process.env['PORT'], function () {
+  console.log('Reactions charts listening on port ', process.env['PORT']);
 });
