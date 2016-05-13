@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/chart/:user/:repo/:resource/:id', function (req, res) {
-  console.log(req.params.resource);
+
   if (['issues'].includes(req.params.resource)) {
     var url      = req.params.user + '/' + req.params.repo + '/' + req.params.resource + '/' + req.params.id;
     var resource = new GitHubReactions(url);
