@@ -10,6 +10,9 @@ app.get('/', function (req, res) {
 });
 
 app.get('/chart/:user/:repo/:resource/:id', function (req, res) {
+  res.header('Cache-Control', 'public, no-cache, no-store, must-revalidate');
+  res.header('Expires', '-1');
+  res.header('Pragma', 'no-cache');
 
   if (['issues'].includes(req.params.resource)) {
     var url      = req.params.user + '/' + req.params.repo + '/' + req.params.resource + '/' + req.params.id;
