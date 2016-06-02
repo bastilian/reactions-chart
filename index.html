@@ -58,8 +58,9 @@
         var pre   = document.querySelectorAll('pre')[0];
 
         input.addEventListener('change', function (event) {
-          img.src = '/chart/' + input.value
-          pre.textContent = "![Reactions Chart](http://reactions-chart.bastilian.me/" + input.value + ")";
+          var url = input.value.replace(/https:\/\/(www\.)?github\.com\//, '');
+          img.src = '/chart/' + url;
+          pre.textContent = "![Reactions Chart](http://reactions-chart.bastilian.me/" + url + ")";
         });
 
         document.querySelectorAll('form')[0].addEventListener('submit', function (e) {
