@@ -14,8 +14,8 @@ app.get('/chart/:user/:repo/:resource/:id', function (req, res) {
   res.header('Expires', '-1');
   res.header('Pragma', 'no-cache');
 
-  if (['issues'].includes(req.params.resource)) {
-    var url      = req.params.user + '/' + req.params.repo + '/' + req.params.resource + '/' + req.params.id;
+  if (['issues', 'pull'].includes(req.params.resource)) {
+    var url      = req.params.user + '/' + req.params.repo + '/issues/' + req.params.id;
     var resource = new GitHubReactions(url);
     var chart    = new Chart(resource.collectedReactions(), 200, 400);
 
